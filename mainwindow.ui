@@ -67,7 +67,7 @@
     <property name="geometry">
      <rect>
       <x>570</x>
-      <y>50</y>
+      <y>90</y>
       <width>91</width>
       <height>21</height>
      </rect>
@@ -80,7 +80,7 @@
     <property name="geometry">
      <rect>
       <x>570</x>
-      <y>90</y>
+      <y>50</y>
       <width>101</width>
       <height>21</height>
      </rect>
@@ -93,7 +93,7 @@
     <property name="geometry">
      <rect>
       <x>670</x>
-      <y>50</y>
+      <y>90</y>
       <width>113</width>
       <height>24</height>
      </rect>
@@ -103,7 +103,7 @@
     <property name="geometry">
      <rect>
       <x>670</x>
-      <y>90</y>
+      <y>50</y>
       <width>113</width>
       <height>24</height>
      </rect>
@@ -120,6 +120,107 @@
     </property>
     <property name="text">
      <string>TextLabel</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="arrivingPlotButton">
+    <property name="geometry">
+     <rect>
+      <x>410</x>
+      <y>400</y>
+      <width>80</width>
+      <height>24</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Arriving Time</string>
+    </property>
+   </widget>
+   <widget class="QRadioButton" name="linearRadioButton">
+    <property name="geometry">
+     <rect>
+      <x>410</x>
+      <y>310</y>
+      <width>91</width>
+      <height>22</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Linear</string>
+    </property>
+   </widget>
+   <widget class="QRadioButton" name="smoothRadioButton">
+    <property name="geometry">
+     <rect>
+      <x>530</x>
+      <y>310</y>
+      <width>91</width>
+      <height>22</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Smooth</string>
+    </property>
+   </widget>
+   <widget class="QListWidget" name="intertestedMasslistWidget">
+    <property name="geometry">
+     <rect>
+      <x>100</x>
+      <y>310</y>
+      <width>256</width>
+      <height>192</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_3">
+    <property name="geometry">
+     <rect>
+      <x>410</x>
+      <y>360</y>
+      <width>121</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Start from mass sacn:</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="startMassEdit">
+    <property name="geometry">
+     <rect>
+      <x>530</x>
+      <y>357</y>
+      <width>51</width>
+      <height>24</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>1</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="loadInterestedMassButton">
+    <property name="geometry">
+     <rect>
+      <x>100</x>
+      <y>510</y>
+      <width>80</width>
+      <height>24</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Load</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="saveInterestedMassButton">
+    <property name="geometry">
+     <rect>
+      <x>275</x>
+      <y>510</y>
+      <width>80</width>
+      <height>24</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Save</string>
     </property>
    </widget>
   </widget>
