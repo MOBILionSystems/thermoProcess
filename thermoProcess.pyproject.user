@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE QtCreatorProject>
-<!-- Written by QtCreator 7.0.0, 2022-10-18T07:46:05. -->
+<!-- Written by QtCreator 7.0.0, 2022-10-18T11:33:40. -->
 <qtcreator>
  <data>
   <variable>EnvironmentId</variable>
@@ -118,16 +118,16 @@
     <valuelist type="QVariantList" key="CustomOutputParsers"/>
     <value type="int" key="PE.EnvironmentAspect.Base">2</value>
     <valuelist type="QVariantList" key="PE.EnvironmentAspect.Changes"/>
-    <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">C:/Users/ding.zhang/OneDrive - MOBILion Systems, Inc/Documents/Software/thermo/thermoProcess/app.py</value>
-    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">PythonEditor.RunConfiguration.C:/Users/ding.zhang/OneDrive - MOBILion Systems, Inc/Documents/Software/thermo/thermoProcess/app.py</value>
-    <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">C:/Users/ding.zhang/OneDrive - MOBILion Systems, Inc/Documents/Software/thermo/thermoProcess/app.py</value>
-    <value type="QString" key="PythonEditor.RunConfiguation.Interpreter">{d9dc12f9-c31b-4381-8e69-0a63d424a5c8}</value>
-    <value type="QString" key="PythonEditor.RunConfiguation.Script">C:\Users\ding.zhang\OneDrive - MOBILion Systems, Inc\Documents\Software\thermo\thermoProcess\app.py</value>
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">C:/dev/thermoProcess/app.py</value>
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">PythonEditor.RunConfiguration.C:/dev/thermoProcess/app.py</value>
+    <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">C:/dev/thermoProcess/app.py</value>
+    <value type="QString" key="PythonEditor.RunConfiguation.Interpreter">{8fb2a4b7-5899-4ffd-a890-4e34c800b43a}</value>
+    <value type="QString" key="PythonEditor.RunConfiguation.Script">C:\dev\thermoProcess\app.py</value>
     <value type="bool" key="RunConfiguration.UseCppDebugger">false</value>
     <value type="bool" key="RunConfiguration.UseCppDebuggerAuto">true</value>
     <value type="bool" key="RunConfiguration.UseQmlDebugger">false</value>
     <value type="bool" key="RunConfiguration.UseQmlDebuggerAuto">true</value>
-    <value type="QString" key="RunConfiguration.WorkingDirectory.default">C:/Users/ding.zhang/OneDrive - MOBILion Systems, Inc/Documents/Software/thermo/thermoProcess</value>
+    <value type="QString" key="RunConfiguration.WorkingDirectory.default">C:/dev/thermoProcess</value>
    </valuemap>
    <valuemap type="QVariantMap" key="ProjectExplorer.Target.RunConfiguration.1">
     <value type="bool" key="Analyzer.Perf.Settings.UseGlobalSettings">true</value>
@@ -136,16 +136,15 @@
     <valuelist type="QVariantList" key="CustomOutputParsers"/>
     <value type="int" key="PE.EnvironmentAspect.Base">2</value>
     <valuelist type="QVariantList" key="PE.EnvironmentAspect.Changes"/>
-    <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">C:/Users/ding.zhang/OneDrive - MOBILion Systems, Inc/Documents/Software/thermo/thermoProcess/PreMainWindow.py</value>
-    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">PythonEditor.RunConfiguration.C:/Users/ding.zhang/OneDrive - MOBILion Systems, Inc/Documents/Software/thermo/thermoProcess/PreMainWindow.py</value>
-    <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">C:/Users/ding.zhang/OneDrive - MOBILion Systems, Inc/Documents/Software/thermo/thermoProcess/PreMainWindow.py</value>
-    <value type="QString" key="PythonEditor.RunConfiguation.Interpreter">{70819d00-8659-4fae-b3b3-30537a9791a6}</value>
-    <value type="QString" key="PythonEditor.RunConfiguation.Script">C:\Users\ding.zhang\OneDrive - MOBILion Systems, Inc\Documents\Software\thermo\thermoProcess\PreMainWindow.py</value>
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">C:/dev/thermoProcess/PreMainWindow.py</value>
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">PythonEditor.RunConfiguration.C:/dev/thermoProcess/PreMainWindow.py</value>
+    <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">C:/dev/thermoProcess/PreMainWindow.py</value>
+    <value type="QString" key="PythonEditor.RunConfiguation.Script">C:\dev\thermoProcess\PreMainWindow.py</value>
     <value type="bool" key="RunConfiguration.UseCppDebugger">false</value>
     <value type="bool" key="RunConfiguration.UseCppDebuggerAuto">true</value>
     <value type="bool" key="RunConfiguration.UseQmlDebugger">false</value>
     <value type="bool" key="RunConfiguration.UseQmlDebuggerAuto">true</value>
-    <value type="QString" key="RunConfiguration.WorkingDirectory.default">C:/Users/ding.zhang/OneDrive - MOBILion Systems, Inc/Documents/Software/thermo/thermoProcess</value>
+    <value type="QString" key="RunConfiguration.WorkingDirectory.default">C:/dev/thermoProcess</value>
    </valuemap>
    <valuemap type="QVariantMap" key="ProjectExplorer.Target.RunConfiguration.2">
     <value type="bool" key="Analyzer.Perf.Settings.UseGlobalSettings">true</value>
@@ -154,16 +153,15 @@
     <valuelist type="QVariantList" key="CustomOutputParsers"/>
     <value type="int" key="PE.EnvironmentAspect.Base">2</value>
     <valuelist type="QVariantList" key="PE.EnvironmentAspect.Changes"/>
-    <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">C:/Users/ding.zhang/OneDrive - MOBILion Systems, Inc/Documents/Software/thermo/thermoProcess/MainWindow.py</value>
-    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">PythonEditor.RunConfiguration.C:/Users/ding.zhang/OneDrive - MOBILion Systems, Inc/Documents/Software/thermo/thermoProcess/MainWindow.py</value>
-    <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">C:/Users/ding.zhang/OneDrive - MOBILion Systems, Inc/Documents/Software/thermo/thermoProcess/MainWindow.py</value>
-    <value type="QString" key="PythonEditor.RunConfiguation.Interpreter">{70819d00-8659-4fae-b3b3-30537a9791a6}</value>
-    <value type="QString" key="PythonEditor.RunConfiguation.Script">C:\Users\ding.zhang\OneDrive - MOBILion Systems, Inc\Documents\Software\thermo\thermoProcess\MainWindow.py</value>
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">C:/dev/thermoProcess/MainWindow.py</value>
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">PythonEditor.RunConfiguration.C:/dev/thermoProcess/MainWindow.py</value>
+    <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">C:/dev/thermoProcess/MainWindow.py</value>
+    <value type="QString" key="PythonEditor.RunConfiguation.Script">C:\dev\thermoProcess\MainWindow.py</value>
     <value type="bool" key="RunConfiguration.UseCppDebugger">false</value>
     <value type="bool" key="RunConfiguration.UseCppDebuggerAuto">true</value>
     <value type="bool" key="RunConfiguration.UseQmlDebugger">false</value>
     <value type="bool" key="RunConfiguration.UseQmlDebuggerAuto">true</value>
-    <value type="QString" key="RunConfiguration.WorkingDirectory.default">C:/Users/ding.zhang/OneDrive - MOBILion Systems, Inc/Documents/Software/thermo/thermoProcess</value>
+    <value type="QString" key="RunConfiguration.WorkingDirectory.default">C:/dev/thermoProcess</value>
    </valuemap>
    <value type="qlonglong" key="ProjectExplorer.Target.RunConfigurationCount">3</value>
   </valuemap>

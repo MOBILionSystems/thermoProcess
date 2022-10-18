@@ -89,8 +89,41 @@ class Ui_MainWindow(object):
         if not self.rawFile:
             QMessageBox.warning(self, "Warning", "No raw file loaded!")
         else:
+            self.listWidget.clear()
             numSpectra = self.rawFile.GetNumSpectra()
             self.totalMassScanNumberLabel.setText("Total mass scans: %i" %(numSpectra))
+            firstValidMassScan = 1
+            massTimeGap = 1000
+            lastMassTime = 0
+            massPerIms = 0
+            massInCurrentIms = 0
+            massPerImsDict = {}
+            for ns in range(1, numSpectra + 1):
+                thisMassTime = self.rawFile.RTFromScanNum(ns) * 60 * 1000
+                self.listWidget.addItem("%i: %f ms"%(ns, thisMassTime))
+                if ns == firstValidMassScan:
+                    lastMassTime = thisMassTime
+                    massInCurrentIms = massInCurrentIms + 1
+                    continue
+                else:
+                    if thisMassTime - lastMassTime > 2.5 * massTimeGap:
+                        massPerIms = massInCurrentIms
+                        massInCurrentIms = 1
+                        lastMassTime = thisMassTime
+                        firstValidMassScan = ns
+                        if massPerIms in massPerImsDict:
+                            massPerImsDict[massPerIms] = massPerImsDict[massPerIms] + 1
+                        else:
+                            massPerImsDict[massPerIms] = 1
+                    else:
+                        massTimeGap = thisMassTime - lastMassTime
+                        massInCurrentIms = massInCurrentIms + 1
+                        lastMassTime = thisMassTime
+            print(sorted(massPerImsDict.items(), key=lambda item: item[1]))
+            massPerIms = sorted(massPerImsDict.items(), key=lambda item: item[1])[-1][0]
+            self.massPerImsEdit.setText(str(massPerIms))
+            self.totalImsEdit.setText(str(numSpectra // massPerIms))
+
     # setupUi
 
     def retranslateUi(self, MainWindow):
