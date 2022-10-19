@@ -25,6 +25,7 @@ import matplotlib.pyplot as plt
 import statistics
 import numpy as np
 import csv
+from scipy.interpolate import make_interp_spline
 
 flex = True  # True for flex and False for RT
 profile = True # True for profile and False for Centroid
@@ -110,6 +111,7 @@ class Ui_MainWindow(object):
         self.linearRadioButton = QRadioButton(self.centralwidget)
         self.linearRadioButton.setObjectName(u"linearRadioButton")
         self.linearRadioButton.setGeometry(QRect(410, 310, 91, 22))
+        self.linearRadioButton.setChecked(True)
         self.smoothRadioButton = QRadioButton(self.centralwidget)
         self.smoothRadioButton.setObjectName(u"smoothRadioButton")
         self.smoothRadioButton.setGeometry(QRect(530, 310, 91, 22))
@@ -208,6 +210,8 @@ class Ui_MainWindow(object):
 
     def arrivingPlot_clicked(self):
         print("plotting arriving time")
+        if not self.totalImsEdit.text() or not self.massPerImsEdit.text():
+            QMessageBox.warning(self, "Warning", "Analysis raw file before plotting")
         imsScanNum = int(self.totalImsEdit.text())
         msNumInIms = int(self.massPerImsEdit.text())
         #peaksInterested = [322.0485,622.0305,922.0102,1122.0014,1221.9971] if flex else [422.7366,496.2865,586.79997,613.3166,801.4142]
@@ -256,13 +260,26 @@ class Ui_MainWindow(object):
 
                 y = [yy / max_arriving_intensity for yy in y] # normalization
                 plt.axis([max_arriving_time - 200, max_arriving_time + 200, 0, 1.2])
-                plt.plot(x, y)
+
+                if(self.smoothRadioButton.isChecked()):
+                    X_Y_Spline = make_interp_spline(x, y)
+                    X_ = np.linspace(x[0], x[-1], 500)
+                    Y_ = X_Y_Spline(X_)
+
+                    max_arriving_intensity_Y = max(Y_)
+                    Y_ = [YY / max_arriving_intensity_Y for YY in Y_] # normalization
+
+                    plt.plot(X_, Y_)
+                else:
+                    plt.plot(x, y)
+
 
             csvData = np.array(curveData).transpose().tolist()
-            with open('curves/%s.csv'%target, 'w', newline='') as file:
+            with open('%s.csv'%target, 'w', newline='') as file:
                 writer = csv.writer(file)
                 writer.writerow(csvTitle)
                 writer.writerows(csvData)
+
 
             meanstatistics = statistics.mean(arrvingTimes)
             stdstatistics = statistics.stdev(arrvingTimes)

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE QtCreatorProject>
-<!-- Written by QtCreator 7.0.0, 2022-10-19T10:18:36. -->
+<!-- Written by QtCreator 7.0.0, 2022-10-19T13:47:32. -->
 <qtcreator>
  <data>
   <variable>EnvironmentId</variable>
@@ -121,7 +121,7 @@
     <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">C:/dev/thermoProcess/app.py</value>
     <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">PythonEditor.RunConfiguration.C:/dev/thermoProcess/app.py</value>
     <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">C:/dev/thermoProcess/app.py</value>
-    <value type="QString" key="PythonEditor.RunConfiguation.Interpreter">{8fb2a4b7-5899-4ffd-a890-4e34c800b43a}</value>
+    <value type="QString" key="PythonEditor.RunConfiguation.Interpreter">{d9dc12f9-c31b-4381-8e69-0a63d424a5c8}</value>
     <value type="QString" key="PythonEditor.RunConfiguation.Script">C:\dev\thermoProcess\app.py</value>
     <value type="bool" key="RunConfiguration.UseCppDebugger">false</value>
     <value type="bool" key="RunConfiguration.UseCppDebuggerAuto">true</value>
