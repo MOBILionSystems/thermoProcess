@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE QtCreatorProject>
-<!-- Written by QtCreator 7.0.0, 2022-10-18T11:33:40. -->
+<!-- Written by QtCreator 7.0.0, 2022-10-19T10:18:36. -->
 <qtcreator>
  <data>
   <variable>EnvironmentId</variable>
@@ -139,6 +139,7 @@
     <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">C:/dev/thermoProcess/PreMainWindow.py</value>
     <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">PythonEditor.RunConfiguration.C:/dev/thermoProcess/PreMainWindow.py</value>
     <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">C:/dev/thermoProcess/PreMainWindow.py</value>
+    <value type="QString" key="PythonEditor.RunConfiguation.Interpreter">{2c3aab42-25da-4542-824c-7ee19f2f0cb2}</value>
     <value type="QString" key="PythonEditor.RunConfiguation.Script">C:\dev\thermoProcess\PreMainWindow.py</value>
     <value type="bool" key="RunConfiguration.UseCppDebugger">false</value>
     <value type="bool" key="RunConfiguration.UseCppDebuggerAuto">true</value>
@@ -156,6 +157,7 @@
     <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">C:/dev/thermoProcess/MainWindow.py</value>
     <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">PythonEditor.RunConfiguration.C:/dev/thermoProcess/MainWindow.py</value>
     <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">C:/dev/thermoProcess/MainWindow.py</value>
+    <value type="QString" key="PythonEditor.RunConfiguation.Interpreter">{c495120a-5b3b-4641-bd53-e71beda02708}</value>
     <value type="QString" key="PythonEditor.RunConfiguation.Script">C:\dev\thermoProcess\MainWindow.py</value>
     <value type="bool" key="RunConfiguration.UseCppDebugger">false</value>
     <value type="bool" key="RunConfiguration.UseCppDebuggerAuto">true</value>

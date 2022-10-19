@@ -28,6 +28,8 @@ import csv
 
 flex = True  # True for flex and False for RT
 profile = True # True for profile and False for Centroid
+peaksInterested = []
+rawFile = None
 
 def getMass(peaklist, target, ignore:bool):
     if ignore:
@@ -66,7 +68,6 @@ class Ui_MainWindow(object):
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
         MainWindow.resize(876, 663)
-        self.rawFile = None
         self.centralwidget = QWidget(MainWindow)
         self.centralwidget.setObjectName(u"centralwidget")
         self.openFileButton = QPushButton(self.centralwidget)
@@ -124,6 +125,8 @@ class Ui_MainWindow(object):
         self.loadInterestedMassButton = QPushButton(self.centralwidget)
         self.loadInterestedMassButton.setObjectName(u"loadInterestedMassButton")
         self.loadInterestedMassButton.setGeometry(QRect(100, 510, 80, 24))
+        self.loadInterestedMassButton.clicked.connect(MainWindow.loadInterestedMass_clicked)
+
         self.saveInterestedMassButton = QPushButton(self.centralwidget)
         self.saveInterestedMassButton.setObjectName(u"saveInterestedMassButton")
         self.saveInterestedMassButton.setGeometry(QRect(275, 510, 80, 24))
@@ -139,6 +142,19 @@ class Ui_MainWindow(object):
         self.retranslateUi(MainWindow)
         QMetaObject.connectSlotsByName(MainWindow)
 
+    def loadInterestedMass_clicked(self):
+        file = QFileDialog.getOpenFileName(self,
+            "Open interested mass list file", "", "Text Files (*.txt)")
+        fileName = file[0]
+        print(fileName)
+        if not fileName:
+            print("cancelled")
+        else:
+            global peaksInterested
+            peaksInterested.clear()
+            with open(fileName) as f:
+                peaksInterested = [float(line.strip()) for line in f]
+
     def openFile_clicked(self):
         file = QFileDialog.getOpenFileName(self,
             "Open Thermo file", "", "RAW Files (*.raw)")
@@ -147,15 +163,16 @@ class Ui_MainWindow(object):
         if not fileName:
             print("cancelled")
         else:
-            self.rawFile = MSFileReader(fileName)
+            global rawFile
+            rawFile = MSFileReader(fileName)
             self.fileNameLabel.setText(os.path.basename(fileName))
 
     def analysis_clicked(self):
-        if not self.rawFile:
+        if not rawFile:
             QMessageBox.warning(self, "Warning", "No raw file loaded!")
         else:
             self.listWidget.clear()
-            numSpectra = self.rawFile.GetNumSpectra()
+            numSpectra = rawFile.GetNumSpectra()
             self.totalMassScanNumberLabel.setText("Total mass scans: %i" %(numSpectra))
             firstValidMassScan = 1
             massTimeGap = 1000
@@ -164,7 +181,7 @@ class Ui_MainWindow(object):
             massInCurrentIms = 0
             massPerImsDict = {}
             for ns in range(1, numSpectra + 1):
-                thisMassTime = self.rawFile.RTFromScanNum(ns) * 60 * 1000
+                thisMassTime = rawFile.RTFromScanNum(ns) * 60 * 1000
                 self.listWidget.addItem("%i: %f ms"%(ns, thisMassTime))
                 if ns == firstValidMassScan:
                     lastMassTime = thisMassTime
@@ -193,8 +210,14 @@ class Ui_MainWindow(object):
         print("plotting arriving time")
         imsScanNum = int(self.totalImsEdit.text())
         msNumInIms = int(self.massPerImsEdit.text())
-        peaksInterested = [322.0485,622.0305,922.0102,1122.0014,1221.9971] if flex else [422.7366,496.2865,586.79997,613.3166,801.4142]
+        #peaksInterested = [322.0485,622.0305,922.0102,1122.0014,1221.9971] if flex else [422.7366,496.2865,586.79997,613.3166,801.4142]
         massScanRange = (100, 1100) if flex else (600, 1600)
+
+        if not peaksInterested:
+            QMessageBox.warning(self, "Warning", "No mass list available!")
+        else:
+            print(peaksInterested)
+
         for target in peaksInterested:
             arrvingTimes = []
             legends = []
@@ -216,8 +239,8 @@ class Ui_MainWindow(object):
                 xpeak = 0
                 ypeak = 0
                 for sn in range((imsScan - 1) * msNumInIms + 1, imsScan * msNumInIms):
-                    x.append(self.rawFile.RTFromScanNum(sn) * 60 * 1000 - self.rawFile.RTFromScanNum((imsScan - 1) * msNumInIms + 1) * 60 * 1000)
-                    masslist = self.rawFile.GetMassListFromScanNum(sn) if profile else rawfile.GetMassListFromScanNum(sn,"",0,0,0,True)
+                    x.append(rawFile.RTFromScanNum(sn) * 60 * 1000 - rawFile.RTFromScanNum((imsScan - 1) * msNumInIms + 1) * 60 * 1000)
+                    masslist = rawFile.GetMassListFromScanNum(sn) if profile else rawFile.GetMassListFromScanNum(sn,"",0,0,0,True)
                     y.append(getMass(masslist[0], target, False))
                 plt.xlabel("Arriving time (ms)")
                 plt.ylabel("Intensity")
