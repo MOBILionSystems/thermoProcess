@@ -17,7 +17,7 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QPalette, QPixmap, QRadialGradient, QTransform)
 from PySide6.QtWidgets import (QApplication, QMainWindow, QMenuBar, QPushButton,
     QSizePolicy, QStatusBar, QWidget, QFileDialog, QLabel, QLineEdit, QListWidget,
-    QListWidgetItem, QMessageBox, QRadioButton)
+    QListWidgetItem, QMessageBox, QRadioButton, QPlainTextEdit)
 
 from pymsfilereader import MSFileReader
 import os
@@ -29,7 +29,6 @@ from scipy.interpolate import make_interp_spline
 
 flex = True  # True for flex and False for RT
 profile = True # True for profile and False for Centroid
-peaksInterested = []
 rawFile = None
 
 def getMass(peaklist, target, ignore:bool):
@@ -115,9 +114,9 @@ class Ui_MainWindow(object):
         self.smoothRadioButton = QRadioButton(self.centralwidget)
         self.smoothRadioButton.setObjectName(u"smoothRadioButton")
         self.smoothRadioButton.setGeometry(QRect(530, 310, 91, 22))
-        self.intertestedMasslistWidget = QListWidget(self.centralwidget)
-        self.intertestedMasslistWidget.setObjectName(u"intertestedMasslistWidget")
-        self.intertestedMasslistWidget.setGeometry(QRect(100, 310, 256, 192))
+        self.interestedMassTextEdit = QPlainTextEdit(self.centralwidget)
+        self.interestedMassTextEdit.setObjectName(u"interestedMassTextEdit")
+        self.interestedMassTextEdit.setGeometry(QRect(100, 310, 251, 171))
         self.label_3 = QLabel(self.centralwidget)
         self.label_3.setObjectName(u"label_3")
         self.label_3.setGeometry(QRect(410, 360, 121, 16))
@@ -132,6 +131,8 @@ class Ui_MainWindow(object):
         self.saveInterestedMassButton = QPushButton(self.centralwidget)
         self.saveInterestedMassButton.setObjectName(u"saveInterestedMassButton")
         self.saveInterestedMassButton.setGeometry(QRect(275, 510, 80, 24))
+        self.saveInterestedMassButton.clicked.connect(MainWindow.saveInterestedMass_clicked)
+
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QMenuBar(MainWindow)
         self.menubar.setObjectName(u"menubar")
@@ -144,6 +145,15 @@ class Ui_MainWindow(object):
         self.retranslateUi(MainWindow)
         QMetaObject.connectSlotsByName(MainWindow)
 
+    def saveInterestedMass_clicked(self):
+        file = QFileDialog.getSaveFileName(self,
+            "Save interested mass list file", "", "Text Files (*.txt)")
+        fileName = file[0]
+        print(fileName)
+        if fileName:
+            with open(fileName, "w") as f:
+                f.write(self.interestedMassTextEdit.toPlainText())
+
     def loadInterestedMass_clicked(self):
         file = QFileDialog.getOpenFileName(self,
             "Open interested mass list file", "", "Text Files (*.txt)")
@@ -152,10 +162,8 @@ class Ui_MainWindow(object):
         if not fileName:
             print("cancelled")
         else:
-            global peaksInterested
-            peaksInterested.clear()
-            with open(fileName) as f:
-                peaksInterested = [float(line.strip()) for line in f]
+            with open(fileName, "r") as f:
+                self.interestedMassTextEdit.setPlainText(f.read())
 
     def openFile_clicked(self):
         file = QFileDialog.getOpenFileName(self,
@@ -209,18 +217,20 @@ class Ui_MainWindow(object):
             self.totalImsEdit.setText(str(numSpectra // massPerIms))
 
     def arrivingPlot_clicked(self):
+
         print("plotting arriving time")
         if not self.totalImsEdit.text() or not self.massPerImsEdit.text():
             QMessageBox.warning(self, "Warning", "Analysis raw file before plotting")
         imsScanNum = int(self.totalImsEdit.text())
         msNumInIms = int(self.massPerImsEdit.text())
-        #peaksInterested = [322.0485,622.0305,922.0102,1122.0014,1221.9971] if flex else [422.7366,496.2865,586.79997,613.3166,801.4142]
         massScanRange = (100, 1100) if flex else (600, 1600)
+
+        peaksInterestedPlainText = self.interestedMassTextEdit.toPlainText()
+        peaksInterested = [float(line.strip()) for line in peaksInterestedPlainText.split()]
 
         if not peaksInterested:
             QMessageBox.warning(self, "Warning", "No mass list available!")
-        else:
-            print(peaksInterested)
+            return
 
         for target in peaksInterested:
             arrvingTimes = []

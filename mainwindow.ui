@@ -161,16 +161,6 @@
      <string>Smooth</string>
     </property>
    </widget>
-   <widget class="QListWidget" name="intertestedMasslistWidget">
-    <property name="geometry">
-     <rect>
-      <x>100</x>
-      <y>310</y>
-      <width>256</width>
-      <height>192</height>
-     </rect>
-    </property>
-   </widget>
    <widget class="QLabel" name="label_3">
     <property name="geometry">
      <rect>
@@ -221,6 +211,16 @@
     </property>
     <property name="text">
      <string>Save</string>
+    </property>
+   </widget>
+   <widget class="QPlainTextEdit" name="interestedMassTextEdit">
+    <property name="geometry">
+     <rect>
+      <x>100</x>
+      <y>310</y>
+      <width>251</width>
+      <height>171</height>
+     </rect>
     </property>
    </widget>
   </widget>

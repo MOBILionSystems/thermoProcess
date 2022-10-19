@@ -16,8 +16,9 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QImage, QKeySequence, QLinearGradient, QPainter,
     QPalette, QPixmap, QRadialGradient, QTransform)
 from PySide6.QtWidgets import (QApplication, QLabel, QLineEdit, QListWidget,
-    QListWidgetItem, QMainWindow, QMenuBar, QPushButton,
-    QRadioButton, QSizePolicy, QStatusBar, QWidget)
+    QListWidgetItem, QMainWindow, QMenuBar, QPlainTextEdit,
+    QPushButton, QRadioButton, QSizePolicy, QStatusBar,
+    QWidget)
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
@@ -62,9 +63,6 @@ class Ui_MainWindow(object):
         self.smoothRadioButton = QRadioButton(self.centralwidget)
         self.smoothRadioButton.setObjectName(u"smoothRadioButton")
         self.smoothRadioButton.setGeometry(QRect(530, 310, 91, 22))
-        self.intertestedMasslistWidget = QListWidget(self.centralwidget)
-        self.intertestedMasslistWidget.setObjectName(u"intertestedMasslistWidget")
-        self.intertestedMasslistWidget.setGeometry(QRect(100, 310, 256, 192))
         self.label_3 = QLabel(self.centralwidget)
         self.label_3.setObjectName(u"label_3")
         self.label_3.setGeometry(QRect(410, 360, 121, 16))
@@ -77,6 +75,9 @@ class Ui_MainWindow(object):
         self.saveInterestedMassButton = QPushButton(self.centralwidget)
         self.saveInterestedMassButton.setObjectName(u"saveInterestedMassButton")
         self.saveInterestedMassButton.setGeometry(QRect(275, 510, 80, 24))
+        self.interestedMassTextEdit = QPlainTextEdit(self.centralwidget)
+        self.interestedMassTextEdit.setObjectName(u"interestedMassTextEdit")
+        self.interestedMassTextEdit.setGeometry(QRect(100, 310, 251, 171))
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QMenuBar(MainWindow)
         self.menubar.setObjectName(u"menubar")
