@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>876</width>
-    <height>663</height>
+    <width>832</width>
+    <height>603</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -57,8 +57,8 @@
     <property name="geometry">
      <rect>
       <x>230</x>
-      <y>0</y>
-      <width>321</width>
+      <y>30</y>
+      <width>301</width>
       <height>192</height>
      </rect>
     </property>
@@ -126,7 +126,7 @@
     <property name="geometry">
      <rect>
       <x>410</x>
-      <y>400</y>
+      <y>520</y>
       <width>80</width>
       <height>24</height>
      </rect>
@@ -135,63 +135,11 @@
      <string>Arriving Time</string>
     </property>
    </widget>
-   <widget class="QRadioButton" name="linearRadioButton">
-    <property name="geometry">
-     <rect>
-      <x>410</x>
-      <y>310</y>
-      <width>91</width>
-      <height>22</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Linear</string>
-    </property>
-   </widget>
-   <widget class="QRadioButton" name="smoothRadioButton">
-    <property name="geometry">
-     <rect>
-      <x>530</x>
-      <y>310</y>
-      <width>91</width>
-      <height>22</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Smooth</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_3">
-    <property name="geometry">
-     <rect>
-      <x>410</x>
-      <y>360</y>
-      <width>121</width>
-      <height>16</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Start from mass sacn:</string>
-    </property>
-   </widget>
-   <widget class="QLineEdit" name="startMassEdit">
-    <property name="geometry">
-     <rect>
-      <x>530</x>
-      <y>357</y>
-      <width>51</width>
-      <height>24</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>1</string>
-    </property>
-   </widget>
    <widget class="QPushButton" name="loadInterestedMassButton">
     <property name="geometry">
      <rect>
       <x>100</x>
-      <y>510</y>
+      <y>520</y>
       <width>80</width>
       <height>24</height>
      </rect>
@@ -204,7 +152,7 @@
     <property name="geometry">
      <rect>
       <x>275</x>
-      <y>510</y>
+      <y>520</y>
       <width>80</width>
       <height>24</height>
      </rect>
@@ -217,10 +165,166 @@
     <property name="geometry">
      <rect>
       <x>100</x>
-      <y>310</y>
+      <y>340</y>
       <width>251</width>
       <height>171</height>
      </rect>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_4">
+    <property name="geometry">
+     <rect>
+      <x>500</x>
+      <y>382</y>
+      <width>31</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>From</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_5">
+    <property name="geometry">
+     <rect>
+      <x>610</x>
+      <y>382</y>
+      <width>21</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>To</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="fromRangeLineEdit">
+    <property name="geometry">
+     <rect>
+      <x>532</x>
+      <y>380</y>
+      <width>71</width>
+      <height>24</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="toRangeLineEdit">
+    <property name="geometry">
+     <rect>
+      <x>630</x>
+      <y>380</y>
+      <width>71</width>
+      <height>24</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_7">
+    <property name="geometry">
+     <rect>
+      <x>100</x>
+      <y>310</y>
+      <width>121</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>List of interested m/s</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_8">
+    <property name="geometry">
+     <rect>
+      <x>230</x>
+      <y>10</y>
+      <width>161</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>scan: start time</string>
+    </property>
+   </widget>
+   <widget class="QGroupBox" name="massRangeGroupBox">
+    <property name="geometry">
+     <rect>
+      <x>400</x>
+      <y>310</y>
+      <width>220</width>
+      <height>65</height>
+     </rect>
+    </property>
+    <property name="title">
+     <string>Mass scan range</string>
+    </property>
+    <layout class="QHBoxLayout" name="horizontalLayout">
+     <item>
+      <widget class="QRadioButton" name="fullRangeRadioButton">
+       <property name="text">
+        <string>Full Range</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QRadioButton" name="customeRangeRadioButton">
+       <property name="text">
+        <string>Custome Range</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+   <widget class="QGroupBox" name="plotSettingGroupBox">
+    <property name="geometry">
+     <rect>
+      <x>400</x>
+      <y>430</y>
+      <width>154</width>
+      <height>65</height>
+     </rect>
+    </property>
+    <property name="title">
+     <string>Plot setting:</string>
+    </property>
+    <layout class="QHBoxLayout" name="horizontalLayout_2">
+     <item>
+      <widget class="QRadioButton" name="linearRadioButton">
+       <property name="text">
+        <string>Linear</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QRadioButton" name="smoothRadioButton">
+       <property name="text">
+        <string>Smooth</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+   <widget class="QLabel" name="label_3">
+    <property name="geometry">
+     <rect>
+      <x>580</x>
+      <y>460</y>
+      <width>49</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>mz (+/-):</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="mzPlotRangeLineEdit">
+    <property name="geometry">
+     <rect>
+      <x>630</x>
+      <y>457</y>
+      <width>61</width>
+      <height>24</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>200</string>
     </property>
    </widget>
   </widget>
@@ -229,7 +333,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>876</width>
+     <width>832</width>
      <height>21</height>
     </rect>
    </property>
@@ -237,24 +341,7 @@
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
  <resources/>
- <connections>
-  <connection>
-   <sender>openFileButton</sender>
-   <signal>clicked()</signal>
-   <receiver>MainWindow</receiver>
-   <slot>openFile_clicked()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>57</x>
-     <y>61</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>131</x>
-     <y>63</y>
-    </hint>
-   </hints>
-  </connection>
- </connections>
+ <connections/>
  <slots>
   <slot>openFile_clicked()</slot>
  </slots>

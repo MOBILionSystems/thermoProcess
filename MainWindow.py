@@ -17,7 +17,7 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QPalette, QPixmap, QRadialGradient, QTransform)
 from PySide6.QtWidgets import (QApplication, QMainWindow, QMenuBar, QPushButton,
     QSizePolicy, QStatusBar, QWidget, QFileDialog, QLabel, QLineEdit, QListWidget,
-    QListWidgetItem, QMessageBox, QRadioButton, QPlainTextEdit)
+    QListWidgetItem, QMessageBox, QRadioButton, QPlainTextEdit, QGroupBox, QHBoxLayout)
 
 from pymsfilereader import MSFileReader
 import os
@@ -67,7 +67,7 @@ class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
-        MainWindow.resize(876, 663)
+        MainWindow.resize(832, 603)
         self.centralwidget = QWidget(MainWindow)
         self.centralwidget.setObjectName(u"centralwidget")
         self.openFileButton = QPushButton(self.centralwidget)
@@ -85,7 +85,7 @@ class Ui_MainWindow(object):
 
         self.listWidget = QListWidget(self.centralwidget)
         self.listWidget.setObjectName(u"listWidget")
-        self.listWidget.setGeometry(QRect(230, 0, 321, 192))
+        self.listWidget.setGeometry(QRect(230, 30, 321, 192))
         self.label = QLabel(self.centralwidget)
         self.label.setObjectName(u"label")
         self.label.setGeometry(QRect(570, 90, 91, 21))
@@ -104,34 +104,87 @@ class Ui_MainWindow(object):
         self.totalMassScanNumberLabel.setGeometry(QRect(570, 15, 211, 21))
         self.arrivingPlotButton = QPushButton(self.centralwidget)
         self.arrivingPlotButton.setObjectName(u"arrivingPlotButton")
-        self.arrivingPlotButton.setGeometry(QRect(410, 400, 80, 24))
+        self.arrivingPlotButton.setGeometry(QRect(410, 520, 80, 24))
         self.arrivingPlotButton.clicked.connect(MainWindow.arrivingPlot_clicked)
 
-        self.linearRadioButton = QRadioButton(self.centralwidget)
-        self.linearRadioButton.setObjectName(u"linearRadioButton")
-        self.linearRadioButton.setGeometry(QRect(410, 310, 91, 22))
-        self.linearRadioButton.setChecked(True)
-        self.smoothRadioButton = QRadioButton(self.centralwidget)
-        self.smoothRadioButton.setObjectName(u"smoothRadioButton")
-        self.smoothRadioButton.setGeometry(QRect(530, 310, 91, 22))
-        self.interestedMassTextEdit = QPlainTextEdit(self.centralwidget)
-        self.interestedMassTextEdit.setObjectName(u"interestedMassTextEdit")
-        self.interestedMassTextEdit.setGeometry(QRect(100, 310, 251, 171))
-        self.label_3 = QLabel(self.centralwidget)
-        self.label_3.setObjectName(u"label_3")
-        self.label_3.setGeometry(QRect(410, 360, 121, 16))
-        self.startMassEdit = QLineEdit(self.centralwidget)
-        self.startMassEdit.setObjectName(u"startMassEdit")
-        self.startMassEdit.setGeometry(QRect(530, 357, 51, 24))
         self.loadInterestedMassButton = QPushButton(self.centralwidget)
         self.loadInterestedMassButton.setObjectName(u"loadInterestedMassButton")
-        self.loadInterestedMassButton.setGeometry(QRect(100, 510, 80, 24))
+        self.loadInterestedMassButton.setGeometry(QRect(100, 520, 80, 24))
         self.loadInterestedMassButton.clicked.connect(MainWindow.loadInterestedMass_clicked)
 
         self.saveInterestedMassButton = QPushButton(self.centralwidget)
         self.saveInterestedMassButton.setObjectName(u"saveInterestedMassButton")
-        self.saveInterestedMassButton.setGeometry(QRect(275, 510, 80, 24))
+        self.saveInterestedMassButton.setGeometry(QRect(275, 520, 80, 24))
         self.saveInterestedMassButton.clicked.connect(MainWindow.saveInterestedMass_clicked)
+
+        self.saveInterestedMassButton = QPushButton(self.centralwidget)
+        self.saveInterestedMassButton.setObjectName(u"saveInterestedMassButton")
+        self.saveInterestedMassButton.setGeometry(QRect(275, 520, 80, 24))
+        self.interestedMassTextEdit = QPlainTextEdit(self.centralwidget)
+        self.interestedMassTextEdit.setObjectName(u"interestedMassTextEdit")
+        self.interestedMassTextEdit.setGeometry(QRect(100, 340, 251, 171))
+
+        self.label_4 = QLabel(self.centralwidget)
+        self.label_4.setObjectName(u"label_4")
+        self.label_4.setGeometry(QRect(500, 382, 31, 16))
+        self.label_5 = QLabel(self.centralwidget)
+        self.label_5.setObjectName(u"label_5")
+        self.label_5.setGeometry(QRect(610, 382, 21, 16))
+        self.fromRangeLineEdit = QLineEdit(self.centralwidget)
+        self.fromRangeLineEdit.setObjectName(u"fromRangeLineEdit")
+        self.fromRangeLineEdit.setGeometry(QRect(532, 380, 71, 24))
+        self.toRangeLineEdit = QLineEdit(self.centralwidget)
+        self.toRangeLineEdit.setObjectName(u"toRangeLineEdit")
+        self.toRangeLineEdit.setGeometry(QRect(630, 380, 71, 24))
+
+        self.label_3 = QLabel(self.centralwidget)
+        self.label_3.setObjectName(u"label_3")
+        self.label_3.setGeometry(QRect(412, 390, 81, 16))
+        self.label_7 = QLabel(self.centralwidget)
+        self.label_7.setObjectName(u"label_7")
+        self.label_7.setGeometry(QRect(100, 310, 121, 16))
+        self.label_8 = QLabel(self.centralwidget)
+        self.label_8.setObjectName(u"label_8")
+        self.label_8.setGeometry(QRect(230, 10, 161, 16))
+
+        self.massRangeGroupBox = QGroupBox(self.centralwidget)
+        self.massRangeGroupBox.setObjectName(u"massRangeGroupBox")
+        self.massRangeGroupBox.setGeometry(QRect(400, 310, 220, 65))
+        self.horizontalLayout = QHBoxLayout(self.massRangeGroupBox)
+        self.horizontalLayout.setObjectName(u"horizontalLayout")
+        self.fullRangeRadioButton = QRadioButton(self.massRangeGroupBox)
+        self.fullRangeRadioButton.setObjectName(u"fullRangeRadioButton")
+        self.fullRangeRadioButton.setChecked(True)
+
+        self.horizontalLayout.addWidget(self.fullRangeRadioButton)
+
+        self.customeRangeRadioButton = QRadioButton(self.massRangeGroupBox)
+        self.customeRangeRadioButton.setObjectName(u"customeRangeRadioButton")
+
+        self.horizontalLayout.addWidget(self.customeRangeRadioButton)
+
+        self.plotSettingGroupBox = QGroupBox(self.centralwidget)
+        self.plotSettingGroupBox.setObjectName(u"plotSettingGroupBox")
+        self.plotSettingGroupBox.setGeometry(QRect(400, 430, 154, 65))
+        self.horizontalLayout_2 = QHBoxLayout(self.plotSettingGroupBox)
+        self.horizontalLayout_2.setObjectName(u"horizontalLayout_2")
+        self.linearRadioButton = QRadioButton(self.plotSettingGroupBox)
+        self.linearRadioButton.setObjectName(u"linearRadioButton")
+        self.linearRadioButton.setChecked(True)
+
+        self.horizontalLayout_2.addWidget(self.linearRadioButton)
+
+        self.smoothRadioButton = QRadioButton(self.plotSettingGroupBox)
+        self.smoothRadioButton.setObjectName(u"smoothRadioButton")
+
+        self.horizontalLayout_2.addWidget(self.smoothRadioButton)
+
+        self.label_3 = QLabel(self.centralwidget)
+        self.label_3.setObjectName(u"label_3")
+        self.label_3.setGeometry(QRect(580, 460, 49, 16))
+        self.mzPlotRangeLineEdit = QLineEdit(self.centralwidget)
+        self.mzPlotRangeLineEdit.setObjectName(u"mzPlotRangeLineEdit")
+        self.mzPlotRangeLineEdit.setGeometry(QRect(630, 457, 61, 24))
 
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QMenuBar(MainWindow)
@@ -221,9 +274,15 @@ class Ui_MainWindow(object):
         print("plotting arriving time")
         if not self.totalImsEdit.text() or not self.massPerImsEdit.text():
             QMessageBox.warning(self, "Warning", "Analysis raw file before plotting")
+            return
+
+        if self.customeRangeRadioButton.isChecked() and ( not self.fromRangeLineEdit.text() or not self.toRangeLineEdit.text()):
+            QMessageBox.warning(self, "Warning", "Custome ranage is not available")
+            return
+
         imsScanNum = int(self.totalImsEdit.text())
         msNumInIms = int(self.massPerImsEdit.text())
-        massScanRange = (100, 1100) if flex else (600, 1600)
+        #massScanRange = (100, 1100) if flex else (600, 1600)
 
         peaksInterestedPlainText = self.interestedMassTextEdit.toPlainText()
         peaksInterested = [float(line.strip()) for line in peaksInterestedPlainText.split()]
@@ -231,6 +290,11 @@ class Ui_MainWindow(object):
         if not peaksInterested:
             QMessageBox.warning(self, "Warning", "No mass list available!")
             return
+
+        if not self.mzPlotRangeLineEdit.text():
+            QMessageBox.warning(self, "Warning", "No mz plot range available!")
+            return
+        mzPlotRange = int(self.mzPlotRangeLineEdit.text().strip())
 
         for target in peaksInterested:
             arrvingTimes = []
@@ -243,8 +307,9 @@ class Ui_MainWindow(object):
             curveData = []
             for imsScan in range(1, imsScanNum):
                 scanStart = (imsScan - 1) * msNumInIms + 1
-                if not (scanStart >= massScanRange[0] and scanStart <= massScanRange[1] - msNumInIms):
-                    continue
+                if self.customeRangeRadioButton.isChecked():
+                    if not (scanStart >= int(self.fromRangeLineEdit.text().strip()) and scanStart <= int(self.toRangeLineEdit.text().strip()) - msNumInIms):
+                        continue
                 csvTitle.append("X-%i"%imsScan)
                 csvTitle.append("Y-%i"%imsScan)
                 legends.append(imsScan)
@@ -269,7 +334,7 @@ class Ui_MainWindow(object):
                 curveData.append(y)
 
                 y = [yy / max_arriving_intensity for yy in y] # normalization
-                plt.axis([max_arriving_time - 200, max_arriving_time + 200, 0, 1.2])
+                plt.axis([max_arriving_time - mzPlotRange, max_arriving_time + mzPlotRange, 0, 1.2])
 
                 if(self.smoothRadioButton.isChecked()):
                     X_Y_Spline = make_interp_spline(x, y)
@@ -300,8 +365,8 @@ class Ui_MainWindow(object):
             plt.title("Arriving time" + " of " + str(target) + " m/z")
             print("-------------------------------------")
             plt.legend(legends, loc='upper right')
-            plt.text(max_arriving_time - 180, 1.1,r'$\mu=%.4f$'%(meanstatistics))
-            plt.text(max_arriving_time - 180, 1.05,r'$RSD=%.4f$'%(rtdstatistics))
+            plt.text(max_arriving_time - mzPlotRange * 0.9, 1.1,r'$\mu=%.4f$'%(meanstatistics))
+            plt.text(max_arriving_time - mzPlotRange * 0.9, 1.05,r'$RSD=%.4f$'%(rtdstatistics))
             plt.show()
     # setupUi
 
@@ -316,9 +381,19 @@ class Ui_MainWindow(object):
         self.arrivingPlotButton.setText(QCoreApplication.translate("MainWindow", u"Arriving Time", None))
         self.linearRadioButton.setText(QCoreApplication.translate("MainWindow", u"Linear", None))
         self.smoothRadioButton.setText(QCoreApplication.translate("MainWindow", u"Smooth", None))
-        self.label_3.setText(QCoreApplication.translate("MainWindow", u"Start from mass sacn:", None))
-        self.startMassEdit.setText(QCoreApplication.translate("MainWindow", u"1", None))
         self.loadInterestedMassButton.setText(QCoreApplication.translate("MainWindow", u"Load", None))
         self.saveInterestedMassButton.setText(QCoreApplication.translate("MainWindow", u"Save", None))
+
+        self.fullRangeRadioButton.setText(QCoreApplication.translate("MainWindow", u"Full Range", None))
+        self.customeRangeRadioButton.setText(QCoreApplication.translate("MainWindow", u"Custome Range", None))
+        self.label_4.setText(QCoreApplication.translate("MainWindow", u"From", None))
+        self.label_5.setText(QCoreApplication.translate("MainWindow", u"To", None))
+
+        self.label_7.setText(QCoreApplication.translate("MainWindow", u"List of interested m/s", None))
+        self.label_8.setText(QCoreApplication.translate("MainWindow", u"scan: start time", None))
+        self.plotSettingGroupBox.setTitle(QCoreApplication.translate("MainWindow", u"Plot setting:", None))
+        self.massRangeGroupBox.setTitle(QCoreApplication.translate("MainWindow", u"Mass scan range:", None))
+        self.label_3.setText(QCoreApplication.translate("MainWindow", u"mz (+/-):", None))
+        self.mzPlotRangeLineEdit.setText(QCoreApplication.translate("MainWindow", u"200", None))
     # retranslateUi
 
