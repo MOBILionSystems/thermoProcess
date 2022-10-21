@@ -14,7 +14,7 @@ from PySide6.QtCore import (QCoreApplication, QDate, QDateTime, QLocale,
 from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QFont, QFontDatabase, QGradient, QIcon,
     QImage, QKeySequence, QLinearGradient, QPainter,
-    QPalette, QPixmap, QRadialGradient, QTransform)
+    QPalette, QPixmap, QRadialGradient, QTransform, QIntValidator)
 from PySide6.QtWidgets import (QApplication, QMainWindow, QMenuBar, QPushButton,
     QSizePolicy, QStatusBar, QWidget, QFileDialog, QLabel, QLineEdit, QListWidget,
     QListWidgetItem, QMessageBox, QRadioButton, QPlainTextEdit, QGroupBox, QHBoxLayout)
@@ -96,9 +96,13 @@ class Ui_MainWindow(object):
         self.totalImsEdit = QLineEdit(self.centralwidget)
         self.totalImsEdit.setObjectName(u"totalImsEdit")
         self.totalImsEdit.setGeometry(QRect(670, 90, 113, 24))
+        self.totalImsEdit.setValidator(QIntValidator())
+
         self.massPerImsEdit = QLineEdit(self.centralwidget)
         self.massPerImsEdit.setObjectName(u"massPerImsEdit")
         self.massPerImsEdit.setGeometry(QRect(670, 50, 113, 24))
+        self.massPerImsEdit.setValidator(QIntValidator())
+
         self.totalMassScanNumberLabel = QLabel(self.centralwidget)
         self.totalMassScanNumberLabel.setObjectName(u"totalMassScanNumberLabel")
         self.totalMassScanNumberLabel.setGeometry(QRect(570, 15, 211, 21))
@@ -133,9 +137,12 @@ class Ui_MainWindow(object):
         self.fromRangeLineEdit = QLineEdit(self.centralwidget)
         self.fromRangeLineEdit.setObjectName(u"fromRangeLineEdit")
         self.fromRangeLineEdit.setGeometry(QRect(532, 380, 71, 24))
+        self.fromRangeLineEdit.setValidator((QIntValidator()))
+
         self.toRangeLineEdit = QLineEdit(self.centralwidget)
         self.toRangeLineEdit.setObjectName(u"toRangeLineEdit")
         self.toRangeLineEdit.setGeometry(QRect(630, 380, 71, 24))
+        self.toRangeLineEdit.setValidator((QIntValidator()))
 
         self.label_3 = QLabel(self.centralwidget)
         self.label_3.setObjectName(u"label_3")
@@ -185,6 +192,7 @@ class Ui_MainWindow(object):
         self.mzPlotRangeLineEdit = QLineEdit(self.centralwidget)
         self.mzPlotRangeLineEdit.setObjectName(u"mzPlotRangeLineEdit")
         self.mzPlotRangeLineEdit.setGeometry(QRect(630, 457, 61, 24))
+        self.mzPlotRangeLineEdit.setValidator((QIntValidator()))
 
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QMenuBar(MainWindow)
