@@ -40,7 +40,7 @@
      <string>TextLabel</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton">
+   <widget class="QPushButton" name="analysisButton">
     <property name="geometry">
      <rect>
       <x>130</x>
@@ -89,7 +89,7 @@
      <string>Mass scans / IMS:</string>
     </property>
    </widget>
-   <widget class="QLineEdit" name="totalmsEdit">
+   <widget class="QLineEdit" name="totalImsEdit">
     <property name="geometry">
      <rect>
       <x>670</x>
@@ -206,6 +206,9 @@
       <height>24</height>
      </rect>
     </property>
+    <property name="text">
+     <string>100</string>
+    </property>
    </widget>
    <widget class="QLineEdit" name="toRangeLineEdit">
     <property name="geometry">
@@ -215,6 +218,9 @@
       <width>71</width>
       <height>24</height>
      </rect>
+    </property>
+    <property name="text">
+     <string>1100</string>
     </property>
    </widget>
    <widget class="QLabel" name="label_7">
@@ -261,6 +267,9 @@
        <property name="text">
         <string>Full Range</string>
        </property>
+       <property name="checked">
+        <bool>true</bool>
+       </property>
       </widget>
      </item>
      <item>
@@ -289,6 +298,9 @@
       <widget class="QRadioButton" name="linearRadioButton">
        <property name="text">
         <string>Linear</string>
+       </property>
+       <property name="checked">
+        <bool>true</bool>
        </property>
       </widget>
      </item>
